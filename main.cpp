@@ -40,7 +40,7 @@ int scoreCalc(string S)
         
         int index = indexFinder(S[i] , ALPHA);
         
-        if(index >= 0)
+        if(index > 0)
         {
             score += SCORES[index];
         }
