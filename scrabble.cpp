@@ -59,10 +59,10 @@ void defineGameLists(scrabble list[])
 void getInputsFromUser(string* player1, string* player2)
 {
 	cout << "Player1 : " << endl;
-	cin >> *player1;
+	getline(cin,*player1);
 
 	cout << "Player2 : " << endl;
-	cin >> *player2;
+	getline(cin,*player2);
 }
 
 int getScore(string input, scrabble list[])
@@ -78,7 +78,7 @@ int getScore(string input, scrabble list[])
 		for (int j = 0; j < length; j++)
 		{
 
-			(input[j] == list[i].smallLetter || input[j] == list[i].capLetter) ? score += list[i].score : NULL ;
+			(input[j] == list[i].smallLetter || input[j] == list[i].capLetter) ? score += list[i].score : 0 ;
 
 		}
 
@@ -90,8 +90,8 @@ int getScore(string input, scrabble list[])
 void printResults(string player1,string player2 , scrabble list[])
 {
 
-//		cout << "player 1 = " << getScore(player1, list) << endl;
-//		cout << "player 2 = " << getScore(player2, list) << endl;
+	cout << "player1 score = " << getScore(player1, list) << endl;
+	cout << "player2 score = " << getScore(player2, list) << endl;
 
 	if (getScore(player1, list) > getScore(player2, list))
 		cout << "Player 1 wins!" << endl;
@@ -103,7 +103,6 @@ void printResults(string player1,string player2 , scrabble list[])
 
 int main()
 {
-
 	scrabble game[SIZE];
 	defineGameLists(game);
 
